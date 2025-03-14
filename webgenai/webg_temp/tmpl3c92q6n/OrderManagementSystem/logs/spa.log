@@ -1,0 +1,10 @@
+Creating SPA for project 01JP6P6C0Z9D8E2YG97V3K4JGQ
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/images/generations "HTTP/1.1 200 OK"
+INFO:/opt/webgenai/tools/openai_spa.py:Waiting for /opt/projects/by-ulid/01JP6P6C0Z9D8E2YG97V3K4JGQ/static
+INFO:/opt/webgenai/tools/openai_spa.py:Adding page CustomerPlus to the database
+INFO:/opt/webgenai/tools/openai_spa.py:Ignoring Image: {'Type': 'Hero', 'name': 'Hero Image.png', 'description': 'An illustration showing interconnected digital systems representing customers, orders, items, and products.'}
+INFO:/opt/webgenai/tools/openai_spa.py:Ignoring Image: {'Type': 'Infographic', 'name': 'Mission and Values Infographic', 'description': 'An infographic displaying the core values and mission of CustomerPlus.'}
+INFO:/opt/webgenai/tools/openai_spa.py:Ignoring Image: {'Type': 'ItemListing', 'name': 'Service Examples', 'description': 'Images representing the different services offered by CustomerPlus.'}
+INFO:/opt/webgenai/tools/openai_spa.py:Ignoring Image: {'Type': 'Testimonial', 'name': 'Client Images', 'description': 'Photos of Jane Doe and John Smith showcasing satisfied customers.'}
+INFO:/opt/webgenai/tools/openai_spa.py:Ignoring Image: {'Type': 'Map', 'name': 'Office Location Map', 'description': 'A map showing the location of CustomerPlus office.'}

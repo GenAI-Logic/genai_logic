@@ -1,0 +1,263 @@
+about:
+  date: March 13, 2025 06:29:41
+  recent_changes: works with modified safrs-react-admin
+  version: 0.0.0
+api_root: '{http_type}://{swagger_host}:{port}/{api}'
+authentication: '{system-default}'
+info:
+  number_relationships: 5
+  number_tables: 5
+info_toggle_checked: true
+resources:
+  Customer:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: balance
+      type: DECIMAL
+    - name: credit_limit
+      type: DECIMAL
+    - name: id
+    description: Model for storing customer information including balance and credit
+      limit.
+    info_list: Model for storing customer information including balance and credit
+      limit.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - customer_id
+      name: OrderList
+      resource: Order
+    type: Customer
+    user_key: name
+  Item:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: order_id
+    - name: product_id
+    - name: quantity
+    - name: unit_price
+      type: DECIMAL
+    - name: amount
+      type: DECIMAL
+    description: Model for storing item details including quantity and calculated
+      amount.
+    info_list: Model for storing item details including quantity and calculated amount.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - item_id
+      name: OrderDetailList
+      resource: OrderDetail
+    - direction: toone
+      fks:
+      - order_id
+      name: order
+      resource: Order
+    - direction: toone
+      fks:
+      - product_id
+      name: product
+      resource: Product
+    type: Item
+    user_key: id
+  Order:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: customer_id
+    - name: amount_total
+      type: DECIMAL
+    - name: notes
+    - name: date_shipped
+      type: DATE
+    description: Model for storing order information including link to customer and
+      notes.
+    info_list: Model for storing order information including link to customer and
+      notes.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - order_id
+      name: ItemList
+      resource: Item
+    - direction: tomany
+      fks:
+      - order_id
+      name: OrderDetailList
+      resource: OrderDetail
+    - direction: toone
+      fks:
+      - customer_id
+      name: customer
+      resource: Customer
+    type: Order
+    user_key: id
+  OrderDetail:
+    attributes:
+    - label: ' id*'
+      name: id
+      search: true
+      sort: true
+    - name: item_id
+    - name: order_id
+    description: Model for storing order detail linking orders and items.
+    info_list: Model for storing order detail linking orders and items.
+    tab_groups:
+    - direction: toone
+      fks:
+      - item_id
+      name: item
+      resource: Item
+    - direction: toone
+      fks:
+      - order_id
+      name: order
+      resource: Order
+    type: OrderDetail
+    user_key: id
+  Product:
+    attributes:
+    - label: ' name*'
+      name: name
+      search: true
+      sort: true
+    - name: unit_price
+      type: DECIMAL
+    - name: id
+    description: Model for storing product information including name and unit price.
+    info_list: Model for storing product information including name and unit price.
+    tab_groups:
+    - direction: tomany
+      fks:
+      - product_id
+      name: ItemList
+      resource: Item
+    type: Product
+    user_key: name
+  SPAComponent:
+    attributes:
+    - hidden: true
+      name: id
+      required: true
+    - name: Type
+    - name: prompt
+      type: textarea
+    - name: user_comments
+      type: textarea
+    - name: created_at
+      type: datetime
+    - name: ai_comments
+      type: textarea
+    - label: name
+      name: name
+      required: true
+      search: true
+    - name: code
+      type: textarea
+    hidden: true
+    order: 2002
+    sort: -created_at
+    tab_groups:
+    - direction: tomany
+      fks:
+      - id
+      name: ChildList
+      resource: SPAComponent
+    type: SPAComponent
+    user_key: name
+  SPAPage:
+    attributes:
+    - label: ' name*'
+      name: name
+      required: true
+      search: true
+      sort: true
+    - name: id
+      required: true
+    - name: contact
+    hidden: true
+    order: 2000
+    tab_groups:
+    - direction: tomany
+      fks:
+      - page_id
+      name: SectionList
+      resource: Section
+    type: SPAPage
+    user_key: name
+  SPASection:
+    attributes:
+    - name: order
+      sort: true
+      type: number
+    - label: ' name*'
+      name: name
+      required: true
+      search: true
+    - name: page_id
+    - name: title
+      required: true
+    - name: subtitle
+    - name: label
+    - name: Type
+    - name: paragraph
+      type: textarea
+    - name: content
+      type: textarea
+    - name: id
+    - name: background
+    - name: template
+    - name: style
+      type: json
+    - name: hidden
+      type: boolean
+    hidden: true
+    order: 2001
+    sort: order
+    tab_groups:
+    - direction: toone
+      fks:
+      - page_id
+      name: page
+      resource: SPASection
+    type: SPASection
+    user_key: name
+settings:
+  HomeJS: /admin-app/home.js
+  max_list_columns: 8
+  style_guide:
+    applicationLocales:
+    - en
+    - es
+    currency_symbol: $
+    currency_symbol_position: left
+    date_format: LL
+    decimal_max: '1000000000'
+    decimal_min: '0'
+    decimal_separator: .
+    detail_mode: tab
+    edit_on_mode: dblclick
+    exclude_listpicker: false
+    include_translation: 'false'
+    keycloak_client_id: alsclient
+    keycloak_realm: kcals
+    keycloak_url: http://localhost:8080
+    locale: en
+    max_decimal_digits: '4'
+    min_decimal_digits: '2'
+    new_mode: dialog
+    pick_style: list
+    row_height: small,
+    serviceType: OntimizeEE
+    startSessionPath: /auth/login
+    style: light
+    thousand_separator: ','
+    use_keycloak: 'false'

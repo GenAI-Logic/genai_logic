@@ -1,0 +1,73 @@
+"models":
+- "classname": |-
+    Customer
+  "code": |-
+    class Customer(Base):
+        __tablename__ = 'customer'
+        id = Column(Integer, primary_key=True, autoincrement=True)
+        name = Column(String, unique=True)
+        balance = Column(DECIMAL)
+        credit_limit = Column(DECIMAL)
+  "description": |-
+    Represents a customer in the system with unique name, balance, and credit limit attributes.
+  "name": |-
+    Customer
+- "classname": |-
+    Order
+  "code": |-
+    class Order(Base):
+        __tablename__ = 'order'
+        id = Column(Integer, primary_key=True, autoincrement=True)
+        customer_id = Column(Integer, ForeignKey('customer.id'))
+        date_shipped = Column(Date)
+        amount_total = Column(DECIMAL)
+        notes = Column(String)
+  "description": |-
+    Represents an order made by a customer, including a notes field.
+  "name": |-
+    Order
+- "classname": |-
+    Item
+  "code": |-
+    class Item(Base):
+        __tablename__ = 'item'
+        id = Column(Integer, primary_key=True, autoincrement=True)
+        order_id = Column(Integer, ForeignKey('order.id'))
+        product_id = Column(Integer, ForeignKey('product.id'))
+        quantity = Column(Integer, nullable=False)
+        unit_price = Column(DECIMAL)
+        amount = Column(DECIMAL)
+  "description": |-
+    Represents an item in an order, including quantity and pricing details.
+  "name": |-
+    Item
+- "classname": |-
+    Product
+  "code": |-
+    class Product(Base):
+        __tablename__ = 'product'
+        id = Column(Integer, primary_key=True, autoincrement=True)
+        name = Column(String)
+        unit_price = Column(DECIMAL)
+  "description": |-
+    Represents a product available in the system with a unit price.
+  "name": |-
+    Product
+"name": |-
+  OrderManagementSystem
+"rules":
+- "code": |-
+    Rule.constraint(validate=Customer,
+                    as_condition=lambda row: row.name != 'y',
+                    error_msg="Customer name cannot be 'y'")
+  "description": |-
+    Ensures that the customer's name cannot be 'y'.
+  "entity": |-
+    Customer
+  "name": |-
+    Customer Name Constraint
+  "use_case": |-
+    Customer.name != 'y'
+"test_data": ""
+"test_data_rows": []
+"test_data_sqlite": ""

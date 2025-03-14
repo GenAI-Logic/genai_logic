@@ -1,0 +1,697 @@
+about:
+  date: March 14, 2025 00:22:13
+  recent_changes: works with modified safrs-react-admin
+  version: 0.0.0
+api_root: '{http_type}://{swagger_host}:{port}/{api}'
+authentication: '{system-default}'
+info:
+  number_relationships: 21
+  number_tables: 26
+info_toggle_checked: true
+resources:
+  Category:
+    attributes:
+    - label: ' category_name*'
+      name: category_name
+      required: true
+      search: true
+      sort: true
+    - name: description
+    - name: picture
+    - name: category_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - category_id
+      name: ProductList
+      resource: Product
+    type: Category
+    user_key: category_name
+  Customer:
+    attributes:
+    - label: ' company_name*'
+      name: company_name
+      required: true
+      search: true
+      sort: true
+    - name: contact_name
+    - name: contact_title
+    - name: address
+    - name: city
+    - name: region
+    - name: postal_code
+    - name: country
+    - name: phone
+    - name: fax
+    - name: customer_id
+      required: true
+    tab_groups:
+    - direction: tomany
+      fks:
+      - customer_id
+      name: CustomerCustomerDemoList
+      resource: CustomerCustomerDemo
+    - direction: tomany
+      fks:
+      - customer_id
+      name: OrderList
+      resource: Order
+    type: Customer
+    user_key: company_name
+  CustomerCustomerDemo:
+    attributes:
+    - label: ' customer_id*'
+      name: customer_id
+      required: true
+      search: true
+      sort: true
+    - name: customer_id
+      required: true
+    - name: customer_type_id
+      required: true
+    tab_groups:
+    - direction: toone
+      fks:
+      - customer_id
+      name: customer
+      resource: Customer
+    - direction: toone
+      fks:
+      - customer_type_id
+      name: customer_type
+      resource: CustomerDemographic
+    type: CustomerCustomerDemo
+    user_key: customer_id
+  CustomerDemographic:
+    attributes:
+    - label: ' customer_type_id*'
+      name: customer_type_id
+      required: true
+      search: true
+      sort: true
+    - name: customer_desc
+    tab_groups:
+    - direction: tomany
+      fks:
+      - customer_type_id
+      name: CustomerCustomerDemoList
+      resource: CustomerCustomerDemo
+    type: CustomerDemographic
+    user_key: customer_type_id
+  Device:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: device_type_id
+    - name: ip_address
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: tomany
+      fks:
+      - device_id
+      name: DeviceSensorsLineList
+      resource: DeviceSensorsLine
+    - direction: toone
+      fks:
+      - device_type_id
+      name: device_type
+      resource: DeviceType
+    type: Device
+    user_key: unique_id
+  DeviceSensorsLine:
+    attributes:
+    - label: ' device_id*'
+      name: device_id
+      search: true
+      sort: true
+    - name: device_id
+    - name: sensor_line_id
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: toone
+      fks:
+      - device_id
+      name: device
+      resource: Device
+    - direction: toone
+      fks:
+      - sensor_line_id
+      name: sensor_line
+      resource: SensorsLine
+    type: DeviceSensorsLine
+    user_key: device_id
+  DeviceType:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: device_type
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: tomany
+      fks:
+      - device_type_id
+      name: DeviceList
+      resource: Device
+    type: DeviceType
+    user_key: unique_id
+  Employee:
+    attributes:
+    - label: ' last_name*'
+      name: last_name
+      required: true
+      search: true
+      sort: true
+    - name: reports_to
+    - name: first_name
+      required: true
+    - name: title
+    - name: title_of_courtesy
+    - name: birth_date
+      type: DATE
+    - name: hire_date
+      type: DATE
+    - name: address
+    - name: city
+    - name: region
+    - name: postal_code
+    - name: country
+    - name: home_phone
+    - name: extension
+    - name: photo
+    - name: notes
+    - name: photo_path
+    - name: employee_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - reports_to
+      name: EmployeeList
+      resource: Employee
+    - direction: tomany
+      fks:
+      - employee_id
+      name: EmployeeTerritoryList
+      resource: EmployeeTerritory
+    - direction: tomany
+      fks:
+      - employee_id
+      name: OrderList
+      resource: Order
+    - direction: toone
+      fks:
+      - reports_to
+      name: Employee
+      resource: Employee
+    type: Employee
+    user_key: last_name
+  EmployeeTerritory:
+    attributes:
+    - label: ' employee_id*'
+      name: employee_id
+      search: true
+      sort: true
+    - name: employee_id
+    - name: territory_id
+      required: true
+    tab_groups:
+    - direction: toone
+      fks:
+      - employee_id
+      name: employee
+      resource: Employee
+    - direction: toone
+      fks:
+      - territory_id
+      name: territory
+      resource: Territory
+    type: EmployeeTerritory
+    user_key: employee_id
+  Equipment:
+    attributes:
+    - label: ' equipment_name*'
+      name: equipment_name
+      required: true
+      search: true
+      sort: true
+    - name: equipment_type_id
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    - name: unique_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - equipment_id
+      name: VesselEquipmentList
+      resource: VesselEquipment
+    - direction: toone
+      fks:
+      - equipment_type_id
+      name: equipment_type
+      resource: EquipmentType
+    type: Equipment
+    user_key: equipment_name
+  EquipmentType:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: equipment_type
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: tomany
+      fks:
+      - equipment_type_id
+      name: EquipmentList
+      resource: Equipment
+    type: EquipmentType
+    user_key: unique_id
+  EventSubjectsType:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: event_subject_type
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    type: EventSubjectsType
+    user_key: unique_id
+  EventType:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: event_type
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: tomany
+      fks:
+      - event_type_id
+      name: EventsLogList
+      resource: EventsLog
+    type: EventType
+    user_key: unique_id
+  EventsLog:
+    attributes:
+    - label: ' subject_of_change_id*'
+      name: subject_of_change_id
+      search: true
+      sort: true
+    - name: event_type_id
+    - name: log_level_id
+    - name: previous_state_value
+    - name: new_state_value
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    - name: subject_of_change_type_id
+    tab_groups:
+    - direction: toone
+      fks:
+      - event_type_id
+      name: event_type
+      resource: EventType
+    - direction: toone
+      fks:
+      - log_level_id
+      name: log_level
+      resource: LogLevel
+    type: EventsLog
+    user_key: subject_of_change_id
+  LogLevel:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: log_level
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: tomany
+      fks:
+      - log_level_id
+      name: EventsLogList
+      resource: EventsLog
+    type: LogLevel
+    user_key: unique_id
+  Order:
+    attributes:
+    - label: ' ship_name*'
+      name: ship_name
+      search: true
+      sort: true
+    - name: customer_id
+    - name: employee_id
+    - name: ship_via
+    - name: order_date
+      type: DATE
+    - name: required_date
+      type: DATE
+    - name: shipped_date
+      type: DATE
+    - name: freight
+    - name: ship_address
+    - name: ship_city
+    - name: ship_region
+    - name: ship_postal_code
+    - name: ship_country
+    - name: order_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - order_id
+      name: OrderDetailList
+      resource: OrderDetail
+    - direction: toone
+      fks:
+      - customer_id
+      name: customer
+      resource: Customer
+    - direction: toone
+      fks:
+      - employee_id
+      name: employee
+      resource: Employee
+    - direction: toone
+      fks:
+      - ship_via
+      name: shipper
+      resource: Shipper
+    type: Order
+    user_key: ship_name
+  OrderDetail:
+    attributes:
+    - label: ' order_id*'
+      name: order_id
+      search: true
+      sort: true
+    - name: order_id
+    - name: product_id
+    - name: unit_price
+      required: true
+    - name: quantity
+      required: true
+    - name: discount
+      required: true
+    tab_groups:
+    - direction: toone
+      fks:
+      - order_id
+      name: order
+      resource: Order
+    - direction: toone
+      fks:
+      - product_id
+      name: product
+      resource: Product
+    type: OrderDetail
+    user_key: order_id
+  Product:
+    attributes:
+    - label: ' product_name*'
+      name: product_name
+      required: true
+      search: true
+      sort: true
+    - name: category_id
+    - name: supplier_id
+    - name: quantity_per_unit
+    - name: unit_price
+    - name: units_in_stock
+    - name: units_on_order
+    - name: reorder_level
+    - name: product_id
+    - name: discontinued
+      required: true
+    tab_groups:
+    - direction: tomany
+      fks:
+      - product_id
+      name: OrderDetailList
+      resource: OrderDetail
+    - direction: toone
+      fks:
+      - category_id
+      name: category
+      resource: Category
+    - direction: toone
+      fks:
+      - supplier_id
+      name: supplier
+      resource: Supplier
+    type: Product
+    user_key: product_name
+  Region:
+    attributes:
+    - label: ' region_description*'
+      name: region_description
+      required: true
+      search: true
+      sort: true
+    - name: region_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - region_id
+      name: TerritoryList
+      resource: Territory
+    type: Region
+    user_key: region_description
+  SensorsLine:
+    attributes:
+    - label: ' unique_id*'
+      name: unique_id
+      search: true
+      sort: true
+    - name: is_digital
+      type: Boolean
+    - name: sensor_line_label
+      required: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    - name: uuid_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - sensor_line_id
+      name: DeviceSensorsLineList
+      resource: DeviceSensorsLine
+    type: SensorsLine
+    user_key: unique_id
+  Shipper:
+    attributes:
+    - label: ' company_name*'
+      name: company_name
+      required: true
+      search: true
+      sort: true
+    - name: phone
+    - name: shipper_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - ship_via
+      name: OrderList
+      resource: Order
+    type: Shipper
+    user_key: company_name
+  Supplier:
+    attributes:
+    - label: ' company_name*'
+      name: company_name
+      required: true
+      search: true
+      sort: true
+    - name: contact_name
+    - name: contact_title
+    - name: address
+    - name: city
+    - name: region
+    - name: postal_code
+    - name: country
+    - name: phone
+    - name: fax
+    - name: homepage
+    - name: supplier_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - supplier_id
+      name: ProductList
+      resource: Product
+    type: Supplier
+    user_key: company_name
+  Territory:
+    attributes:
+    - label: ' territory_description*'
+      name: territory_description
+      required: true
+      search: true
+      sort: true
+    - name: region_id
+      required: true
+    - name: territory_id
+      required: true
+    tab_groups:
+    - direction: tomany
+      fks:
+      - territory_id
+      name: EmployeeTerritoryList
+      resource: EmployeeTerritory
+    - direction: toone
+      fks:
+      - region_id
+      name: region
+      resource: Region
+    type: Territory
+    user_key: territory_description
+  UsState:
+    attributes:
+    - label: ' state_name*'
+      name: state_name
+      search: true
+      sort: true
+    - name: state_abbr
+    - name: state_region
+    - name: state_id
+    type: UsState
+    user_key: state_name
+  Vessel:
+    attributes:
+    - label: ' vessel_name*'
+      name: vessel_name
+      required: true
+      search: true
+      sort: true
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: imo_number
+      required: true
+    - name: is_inactive
+      type: Boolean
+    - name: unique_id
+    tab_groups:
+    - direction: tomany
+      fks:
+      - vessel_id
+      name: VesselEquipmentList
+      resource: VesselEquipment
+    type: Vessel
+    user_key: vessel_name
+  VesselEquipment:
+    attributes:
+    - label: ' vessel_id*'
+      name: vessel_id
+      search: true
+      sort: true
+    - name: equipment_id
+    - name: vessel_id
+    - name: create_date
+      type: DATETIME
+    - name: update_date
+      type: DATETIME
+    - name: is_inactive
+      type: Boolean
+    tab_groups:
+    - direction: toone
+      fks:
+      - equipment_id
+      name: equipment
+      resource: Equipment
+    - direction: toone
+      fks:
+      - vessel_id
+      name: vessel
+      resource: Vessel
+    type: VesselEquipment
+    user_key: vessel_id
+settings:
+  HomeJS: /admin-app/home.js
+  max_list_columns: 8
+  style_guide:
+    applicationLocales:
+    - en
+    - es
+    currency_symbol: $
+    currency_symbol_position: left
+    date_format: LL
+    decimal_max: '1000000000'
+    decimal_min: '0'
+    decimal_separator: .
+    detail_mode: tab
+    edit_on_mode: dblclick
+    exclude_listpicker: false
+    include_translation: 'false'
+    keycloak_client_id: alsclient
+    keycloak_realm: kcals
+    keycloak_url: http://localhost:8080
+    locale: en
+    max_decimal_digits: '4'
+    min_decimal_digits: '2'
+    new_mode: dialog
+    pick_style: list
+    row_height: small,
+    serviceType: OntimizeEE
+    startSessionPath: /auth/login
+    style: light
+    thousand_separator: ','
+    use_keycloak: 'false'

@@ -1,0 +1,157 @@
+Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732EZZX7J2XVS4R3TY2CEC rule file: logic/wg_rules/Customer_Balance_Derivation.py
+01JP732F026PBW6EVEVYJ2AY4R rule file: logic/wg_rules/Order_Amount_Total_Derivation.py
+01JP732F040HTGRKYKNWJ1ZRWG rule file: logic/wg_rules/Item_Amount_Derivation.py
+01JP732F0813Q9W7QSP0D6JWYZ rule file: logic/wg_rules/Copy_Item_Unit_Price.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+
+[34mVerifying rule: Customer_Balance_Constraint - 01JP732EZV7MB5EW8X45B6X8FE[0m
+
+[32mActivated rule 01JP732EZV7MB5EW8X45B6X8FE[0m
+
+[34mVerifying rule: Customer_Balance_Derivation - 01JP732EZZX7J2XVS4R3TY2CEC[0m
+
+[32mActivated rule 01JP732EZZX7J2XVS4R3TY2CEC[0m
+
+[34mVerifying rule: Order_Amount_Total_Derivation - 01JP732F026PBW6EVEVYJ2AY4R[0m
+
+[32mActivated rule 01JP732F026PBW6EVEVYJ2AY4R[0m
+
+[34mVerifying rule: Item_Amount_Derivation - 01JP732F040HTGRKYKNWJ1ZRWG[0m
+
+[32mActivated rule 01JP732F040HTGRKYKNWJ1ZRWG[0m
+
+[34mVerifying rule: Copy_Item_Unit_Price - 01JP732F0813Q9W7QSP0D6JWYZ[0m
+
+[32mActivated rule 01JP732F0813Q9W7QSP0D6JWYZ[0m
+
+[34mVerifying rule: Order_Kafka_Integration - 01JP732F0AF6ECED61ENW0PT21[0m
+
+[32mActivated rule 01JP732F0AF6ECED61ENW0PT21[0m
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732EZZX7J2XVS4R3TY2CEC rule file: logic/wg_rules/Customer_Balance_Derivation.py
+01JP732F026PBW6EVEVYJ2AY4R rule file: logic/wg_rules/Order_Amount_Total_Derivation.py
+01JP732F040HTGRKYKNWJ1ZRWG rule file: logic/wg_rules/Item_Amount_Derivation.py
+01JP732F0813Q9W7QSP0D6JWYZ rule file: logic/wg_rules/Copy_Item_Unit_Price.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+
+[34mVerifying rule: Customer_Name_Constraint - 01JP732F0D701XE32B8SJNE0JR[0m
+Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732EZZX7J2XVS4R3TY2CEC rule file: logic/wg_rules/Customer_Balance_Derivation.py
+01JP732F026PBW6EVEVYJ2AY4R rule file: logic/wg_rules/Order_Amount_Total_Derivation.py
+01JP732F040HTGRKYKNWJ1ZRWG rule file: logic/wg_rules/Item_Amount_Derivation.py
+01JP732F0813Q9W7QSP0D6JWYZ rule file: logic/wg_rules/Copy_Item_Unit_Price.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+[32mLoading Rule Module Customer_Balance_Constraint 01JP732EZV7MB5EW8X45B6X8FE [0m
+[32mLoading Rule Module Customer_Balance_Derivation 01JP732EZZX7J2XVS4R3TY2CEC [0m
+[32mLoading Rule Module Order_Amount_Total_Derivation 01JP732F026PBW6EVEVYJ2AY4R [0m
+[32mLoading Rule Module Item_Amount_Derivation 01JP732F040HTGRKYKNWJ1ZRWG [0m
+[32mLoading Rule Module Copy_Item_Unit_Price 01JP732F0813Q9W7QSP0D6JWYZ [0m
+[32mLoading Rule Module Order_Kafka_Integration 01JP732F0AF6ECED61ENW0PT21 [0m
+
+[32mActivated rule 01JP732F0D701XE32B8SJNE0JR[0m
+
+[34mVerifying rule: Customer_Name_Constraint - 01JP732F0GBQ2A9KWHVX5AGQNK[0m
+
+[32mActivated rule 01JP732F0GBQ2A9KWHVX5AGQNK[0m
+Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+01JP733V268CKQNJPD728B8Y5H rule file: logic/wg_rules/Customer_Balance_Rule.py
+01JP733V29MY8WSZVNH7XA1MJT rule file: logic/wg_rules/Customer_Balance_Sum_Rule.py
+01JP733V2AA51Q598FT9NNAMDN rule file: logic/wg_rules/Order_Amount_Total_Sum_Rule.py
+01JP733V2BMD1W3QZX4RZ92QX1 rule file: logic/wg_rules/Item_Amount_Formula_Rule.py
+01JP733V2CZX51BKNT6FHPF0N8 rule file: logic/wg_rules/Item_Unit_Price_Copy_Rule.py
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+
+[34mVerifying rule: Customer_Balance_Sum_Rule - 01JP733V29MY8WSZVNH7XA1MJT[0m
+
+[32mActivated rule 01JP733V29MY8WSZVNH7XA1MJT[0m
+
+[34mVerifying rule: Order_Amount_Total_Sum_Rule - 01JP733V2AA51Q598FT9NNAMDN[0m
+
+[32mActivated rule 01JP733V2AA51Q598FT9NNAMDN[0m
+
+[34mVerifying rule: Item_Amount_Formula_Rule - 01JP733V2BMD1W3QZX4RZ92QX1[0m
+
+[32mActivated rule 01JP733V2BMD1W3QZX4RZ92QX1[0m
+
+[34mVerifying rule: Item_Unit_Price_Copy_Rule - 01JP733V2CZX51BKNT6FHPF0N8[0m
+
+[32mActivated rule 01JP733V2CZX51BKNT6FHPF0N8[0m
+
+[34mVerifying rule: Customer_Balance_Constraint - 01JP732EZV7MB5EW8X45B6X8FE[0m
+
+[32mActivated rule 01JP732EZV7MB5EW8X45B6X8FE[0m
+
+[34mVerifying rule: Order_Kafka_Integration - 01JP732F0AF6ECED61ENW0PT21[0m
+
+[32mActivated rule 01JP732F0AF6ECED61ENW0PT21[0m
+
+[34mVerifying rule: Customer_Name_Constraint - 01JP732F0D701XE32B8SJNE0JR[0m
+
+[32mActivated rule 01JP732F0D701XE32B8SJNE0JR[0m
+
+[34mVerifying rule: Customer_Name_Constraint - 01JP732F0GBQ2A9KWHVX5AGQNK[0m
+
+[32mActivated rule 01JP732F0GBQ2A9KWHVX5AGQNK[0m
+01JP733V268CKQNJPD728B8Y5H rule file: logic/wg_rules/Customer_Balance_Rule.py
+01JP733V29MY8WSZVNH7XA1MJT rule file: logic/wg_rules/Customer_Balance_Sum_Rule.py
+01JP733V2AA51Q598FT9NNAMDN rule file: logic/wg_rules/Order_Amount_Total_Sum_Rule.py
+01JP733V2BMD1W3QZX4RZ92QX1 rule file: logic/wg_rules/Item_Amount_Formula_Rule.py
+01JP733V2CZX51BKNT6FHPF0N8 rule file: logic/wg_rules/Item_Unit_Price_Copy_Rule.py
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+
+[34mVerifying rule: Customer_Balance_Rule - 01JP733V268CKQNJPD728B8Y5H[0m
+
+[32mActivated rule 01JP733V268CKQNJPD728B8Y5H[0m
+Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+01JP733V268CKQNJPD728B8Y5H rule file: logic/wg_rules/Customer_Balance_Rule.py
+01JP733V29MY8WSZVNH7XA1MJT rule file: logic/wg_rules/Customer_Balance_Sum_Rule.py
+01JP733V2AA51Q598FT9NNAMDN rule file: logic/wg_rules/Order_Amount_Total_Sum_Rule.py
+01JP733V2BMD1W3QZX4RZ92QX1 rule file: logic/wg_rules/Item_Amount_Formula_Rule.py
+01JP733V2CZX51BKNT6FHPF0N8 rule file: logic/wg_rules/Item_Unit_Price_Copy_Rule.py
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+[32mLoading Rule Module Customer_Balance_Rule 01JP733V268CKQNJPD728B8Y5H [0m
+[32mLoading Rule Module Customer_Balance_Sum_Rule 01JP733V29MY8WSZVNH7XA1MJT [0m
+[32mLoading Rule Module Order_Amount_Total_Sum_Rule 01JP733V2AA51Q598FT9NNAMDN [0m
+[32mLoading Rule Module Item_Amount_Formula_Rule 01JP733V2BMD1W3QZX4RZ92QX1 [0m
+[32mLoading Rule Module Item_Unit_Price_Copy_Rule 01JP733V2CZX51BKNT6FHPF0N8 [0m
+[32mLoading Rule Module Customer_Balance_Constraint 01JP732EZV7MB5EW8X45B6X8FE [0m
+[32mLoading Rule Module Order_Kafka_Integration 01JP732F0AF6ECED61ENW0PT21 [0m
+[32mLoading Rule Module Customer_Name_Constraint 01JP732F0D701XE32B8SJNE0JR [0m
+[32mLoading Rule Module Customer_Name_Constraint 01JP732F0GBQ2A9KWHVX5AGQNK [0m
+Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+01JP733V268CKQNJPD728B8Y5H rule file: logic/wg_rules/Customer_Balance_Rule.py
+01JP733V29MY8WSZVNH7XA1MJT rule file: logic/wg_rules/Customer_Balance_Sum_Rule.py
+01JP733V2AA51Q598FT9NNAMDN rule file: logic/wg_rules/Order_Amount_Total_Sum_Rule.py
+01JP733V2BMD1W3QZX4RZ92QX1 rule file: logic/wg_rules/Item_Amount_Formula_Rule.py
+01JP733V2CZX51BKNT6FHPF0N8 rule file: logic/wg_rules/Item_Unit_Price_Copy_Rule.py
+01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+[32mLoading Rule Module Customer_Balance_Rule 01JP733V268CKQNJPD728B8Y5H [0m
+[32mLoading Rule Module Customer_Balance_Sum_Rule 01JP733V29MY8WSZVNH7XA1MJT [0m
+[32mLoading Rule Module Order_Amount_Total_Sum_Rule 01JP733V2AA51Q598FT9NNAMDN [0m
+[32mLoading Rule Module Item_Amount_Formula_Rule 01JP733V2BMD1W3QZX4RZ92QX1 [0m
+[32mLoading Rule Module Item_Unit_Price_Copy_Rule 01JP733V2CZX51BKNT6FHPF0N8 [0m
+[32mLoading Rule Module Customer_Balance_Constraint 01JP732EZV7MB5EW8X45B6X8FE [0m
+[32mLoading Rule Module Order_Kafka_Integration 01JP732F0AF6ECED61ENW0PT21 [0m
+[32mLoading Rule Module Customer_Name_Constraint 01JP732F0D701XE32B8SJNE0JR [0m
+[32mLoading Rule Module Customer_Name_Constraint 01JP732F0GBQ2A9KWHVX5AGQNK [0m

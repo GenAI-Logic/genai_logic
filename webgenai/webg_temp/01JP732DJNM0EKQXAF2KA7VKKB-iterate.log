@@ -1,0 +1,657 @@
+log: Invoking GenAI..
+Project 01JP732DJNM0EKQXAF2KA7VKKB not found
+als genai --using /tmp/context_01JP732DJNM0EKQXAF2KA7VKKB4373lryw --project-name OrderManagementSystem_iter_1 --tables 12  --active-rules
+create_project: 
+create_project: GenAI [OrderManagementSystem_iter_1] creating microservice...
+create_project: .. .. --using prompt: /tmp/context_01JP732DJNM0EKQXAF2KA7VKKB4373lryw
+create_project: .. .. in pwd: /tmp/tmp.kWpREBm03X
+create_project: .. conv[000] processes: 000_you_are.prompt - You are a data modelling exper...
+create_project: .. conv[001] processes: 001_logic_training.prompt - Here is the simplified API for...
+create_project: .. conv[002] processes: 002_create_db_models.prompt - Use SQLAlchemy to create a sql...
+create_project: .. iteration inserted: Update the prior response
+create_project: .. inserted: Use LogicBank to enforce these requirements (do not generate check constraints); be sure to update the data model and *all* test data with any attributes used in the logic:
+create_project: .. inserted explicit test data: Create 4 rows of test data for each table, and follow these guidelines carefully:
+create_project: .. conv[004] processes: 003_create_db_models.response - { |     "models": [ |         { |   ...
+create_project: .. conv[005] processes: 004_iteration.prompt - update model | <task>Create at l...
+create_project: .. iteration inserted: Update the prior response
+create_project: .. inserted explicit test data: Create 4 rows of test data for each table, and follow these guidelines carefully:
+create_project: .. .. conv ignores: create_db_models.py
+create_project: .. .. conv ignores: db.dbml
+create_project: .. .. conv ignores: landing_page.json
+create_project: .. .. conv ignores: project_is_genai_demo.txt
+create_project: .. .. conv ignores: readme.md
+create_project: .. .. conv ignores: response.json
+create_project: .. saved request: system/genai/temp/request.json
+create_project: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+create_project: ChatGPT (30 secs) - response at: system/genai/temp/chatgpt_original.response
+create_project: .. call_chatgpt saved response: system/genai/temp/response.json
+create_project: ..cwd: /tmp/tmp.kWpREBm03X
+create_project: 
+create_project: ..docker using default directory: /tmp/tmp.kWpREBm03X/OrderManagementSystem_iter_1
+create_project: 
+create_project: add description to Customer: Model for storing customer information including balance and credit limit.
+create_project: Added description to model: Customer: class Customer(Base):
+create_project: """description: Model for storing customer information including balance and credit limit."""
+create_project: __tablename__ = 'customer'
+create_project: id = Column(Integer, primary_key=True, autoincrement=True)
+create_project: name = Column(String(50))
+create_project: balance = Column(DECIMAL)
+create_project: credit_limit = Column(DECIMAL)
+create_project: 
+create_project: add description to Order: Model for storing order information including link to customer and notes.
+create_project: Added description to model: Order: class Order(Base):
+create_project: """description: Model for storing order information including link to customer and notes."""
+create_project: __tablename__ = 'order'
+create_project: id = Column(Integer, primary_key=True, autoincrement=True)
+create_project: customer_id = Column(Integer, ForeignKey('customer.id'))
+create_project: amount_total = Column(DECIMAL)
+create_project: date_shipped = Column(Date)
+create_project: notes = Column(String(200))
+create_project: 
+create_project: add description to Item: Model for storing item details including quantity and calculated amount.
+create_project: Added description to model: Item: class Item(Base):
+create_project: """description: Model for storing item details including quantity and calculated amount."""
+create_project: __tablename__ = 'item'
+create_project: id = Column(Integer, primary_key=True, autoincrement=True)
+create_project: order_id = Column(Integer, ForeignKey('order.id'))
+create_project: product_id = Column(Integer, ForeignKey('product.id'))
+create_project: quantity = Column(Integer)
+create_project: unit_price = Column(DECIMAL)
+create_project: amount = Column(DECIMAL)
+create_project: 
+create_project: add description to Product: Model for storing product information including name and unit price.
+create_project: Added description to model: Product: class Product(Base):
+create_project: """description: Model for storing product information including name and unit price."""
+create_project: __tablename__ = 'product'
+create_project: id = Column(Integer, primary_key=True, autoincrement=True)
+create_project: name = Column(String(50))
+create_project: unit_price = Column(DECIMAL)
+create_project: 
+create_project: add description to OrderDetail: Model for storing order detail linking orders and items.
+create_project: Added description to model: OrderDetail: class OrderDetail(Base):
+create_project: """description: Model for storing order detail linking orders and items."""
+create_project: __tablename__ = 'order_detail'
+create_project: id = Column(Integer, primary_key=True, autoincrement=True)
+create_project: order_id = Column(Integer, ForeignKey('order.id'))
+create_project: item_id = Column(Integer, ForeignKey('item.id'))
+create_project: 
+create_project: .... test_data_rows: 12
+create_project: .. code for db creation and test data: system/genai/temp/create_db_models.py
+create_project: .. saving work files to: system/genai/temp/OrderManagementSystem_iter_1
+create_project: save_prompt_messages_to_system_genai_temp_project() - /tmp/tmp.kWpREBm03X/system/genai/temp/OrderManagementSystem_iter_1
+create_project: .. saving[000_you_are.prompt]  - You are a data modelling exper...
+create_project: .. saving[001_logic_training.prompt]  - Here is the simplified API for...
+create_project: .. saving[002_iteration.prompt]  - Update the prior response - be...
+create_project: .. saving[003_iteration.prompt]  - Update the prior response - be...
+create_project: .. saving response [004_create_db_models.response]  - Update the prior response - be...
+create_project: ..cwd: /tmp/tmp.kWpREBm03X
+create_project: 
+create_project: ..docker using default directory: /tmp/tmp.kWpREBm03X/OrderManagementSystem_iter_1
+create_project: 
+create_project: .. fixed hallucination/indent:     Rule.constraint(validate=Customer,
+create_project: .. found class: Customer in: Rule.constraint(validate=Customer,
+create_project: .. fixed hallucination/indent:     Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None)
+create_project: .. found class: Customer in: Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None)
+create_project: .. found class: Order in: Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None)
+create_project: .. fixed hallucination/indent:     Rule.sum(derive=Order.amount_total, as_sum_of=Item.amount)
+create_project: .. found class: Order in: Rule.sum(derive=Order.amount_total, as_sum_of=Item.amount)
+create_project: .. found class: Item in: Rule.sum(derive=Order.amount_total, as_sum_of=Item.amount)
+create_project: .. fixed hallucination/indent:     Rule.formula(derive=Item.amount, as_expression=lambda row: row.quantity * row.unit_price)
+create_project: .. found class: Item in: Rule.formula(derive=Item.amount, as_expression=lambda row: row.quantity * row.unit_price)
+create_project: .. fixed hallucination/indent:     Rule.copy(derive=Item.unit_price, from_parent=Product.unit_price)
+create_project: .. found class: Item in: Rule.copy(derive=Item.unit_price, from_parent=Product.unit_price)
+create_project: .. found class: Product in: Rule.copy(derive=Item.unit_price, from_parent=Product.unit_price)
+create_project: 
+create_project: Project created.  Next steps:
+create_project: 
+create_project: $ ApiLogicServer run      # Run created API and Admin App, or
+create_project: 
+create_project: Customize using IDE on local machine:
+create_project: exit     # exit the Docker container
+create_project: code <local machine directory for: OrderManagementSystem_iter_1>  # e.g., open VSCode on created project
+create_project: 
+create_project: 
+create_project: GENAI (36 secs) successful on try 1
+create_project: 
+create_project: 
+create_project: Welcome to API Logic Server, 14.03.15
+create_project: 
+create_project: creating in manager: sqlite:///system/genai/temp/create_db_models.sqlite
+create_project: 
+Waiting for background tasks to complete.. (in /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB)
+Waiting for background tasks to complete.. (in /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB)
+[1]   Running                 dbml-renderer -i docs/db.dbml -o ui/dber.svg &
+[2]   Running                 ( cd /opt/webgenai; python database/manager.py -p "${proj_id}" --verify ) &
+[3]-  Running                 ( cd /opt/webgenai; python database/manager.py -jp "${proj_id}" > ui/project.json ) &
+[4]+  Running                 cleanup &
+Background tasks completed
+log: Project Created..
+log: Creating sample data..
+Copying SPA..
+setting chatgpt_retry.response
+log: Verifying Rules..
+Added rule: 01JP733V268CKQNJPD728B8Y5H 'Ensure customer balance does not exceed their credit limit'
+# Rule already exists (['01JP732EZZX7J2XVS4R3TY2CEC']), deleting
+Added rule: 01JP733V29MY8WSZVNH7XA1MJT 'Sum of orders where date_shipped is null to derive customer balance'
+# Rule already exists (['01JP732F026PBW6EVEVYJ2AY4R']), deleting
+Added rule: 01JP733V2AA51Q598FT9NNAMDN 'Calculate order amount total as the sum of item amounts'
+# Rule already exists (['01JP732F040HTGRKYKNWJ1ZRWG']), deleting
+Added rule: 01JP733V2BMD1W3QZX4RZ92QX1 'Calculate item amount based on quantity and unit price'
+# Rule already exists (['01JP732F0813Q9W7QSP0D6JWYZ']), deleting
+Added rule: 01JP733V2CZX51BKNT6FHPF0N8 'Copy product unit price to item unit price'
++ manager -jp 01JP732DJNM0EKQXAF2KA7VKKB
++ PYTHONPATH=/opt/webgenai
++ python /opt/webgenai/database/manager.py -jp 01JP732DJNM0EKQXAF2KA7VKKB
++ [[ ! -f /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/docs/db.dbml ]]
++ dbml-renderer -i /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/docs/db.dbml -o /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/ui/dber.svg
++ set +x
+log: Starting Project..
+run_log: 
+log: Starting Project..
+run_log: API Logic Project Server Setup (01JP732DJNM0EKQXAF2KA7VKKB) Starting with CLI args:
+run_log: .. api_logic_server_run.py
+run_log: 
+run_log: Created August 03, 2024 09:34:01 at /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB
+run_log: 
+run_log: Data Model Loaded, customizing...
+run_log: ..discovered models: []
+run_log: LogicBank Activation - declare_logic.py
+run_log: Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+run_log: 01JP733V268CKQNJPD728B8Y5H rule file: logic/wg_rules/Customer_Balance_Rule.py
+run_log: 01JP733V29MY8WSZVNH7XA1MJT rule file: logic/wg_rules/Customer_Balance_Sum_Rule.py
+run_log: 01JP733V2AA51Q598FT9NNAMDN rule file: logic/wg_rules/Order_Amount_Total_Sum_Rule.py
+run_log: 01JP733V2BMD1W3QZX4RZ92QX1 rule file: logic/wg_rules/Item_Amount_Formula_Rule.py
+run_log: 01JP733V2CZX51BKNT6FHPF0N8 rule file: logic/wg_rules/Item_Unit_Price_Copy_Rule.py
+run_log: 01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+run_log: 01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+run_log: 01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+run_log: 01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+run_log: [32mLoading Rule Module Customer_Balance_Rule 01JP733V268CKQNJPD728B8Y5H [0m
+run_log: [32mLoading Rule Module Customer_Balance_Sum_Rule 01JP733V29MY8WSZVNH7XA1MJT [0m
+run_log: [32mLoading Rule Module Order_Amount_Total_Sum_Rule 01JP733V2AA51Q598FT9NNAMDN [0m
+run_log: [32mLoading Rule Module Item_Amount_Formula_Rule 01JP733V2BMD1W3QZX4RZ92QX1 [0m
+run_log: [32mLoading Rule Module Item_Unit_Price_Copy_Rule 01JP733V2CZX51BKNT6FHPF0N8 [0m
+run_log: [32mLoading Rule Module Customer_Balance_Constraint 01JP732EZV7MB5EW8X45B6X8FE [0m
+run_log: [32mLoading Rule Module Order_Kafka_Integration 01JP732F0AF6ECED61ENW0PT21 [0m
+run_log: [32mLoading Rule Module Customer_Name_Constraint 01JP732F0D701XE32B8SJNE0JR [0m
+run_log: [32mLoading Rule Module Customer_Name_Constraint 01JP732F0GBQ2A9KWHVX5AGQNK [0m
+run_log: 
+run_log: The following rules have been loaded
+run_log: Rule Bank[0xffffaa0f9cd0] (loaded 2025-03-13 06:29:54.538632)
+run_log: Mapped Class[Customer] rules:
+run_log: Constraint Function: None
+run_log: Derive <class 'database.models.Customer'>.balance as Sum(Order.amount_total Where Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None) - <function init_rule.<locals>.<lambda> at 0xffffa9e168e0>)
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Mapped Class[Order] rules:
+run_log: Derive <class 'database.models.Order'>.amount_total as Sum(Item.amount Where  - None)
+run_log: RowEvent Order.send_row_to_kafka()
+run_log: Mapped Class[Item] rules:
+run_log: Derive <class 'database.models.Item'>.amount as Formula (-1): Rule.formula(derive=Item.amount, as_expression=la [...]
+run_log: Derive <class 'database.models.Item'>.unit_price as Copy(product.unit_price)
+run_log: 
+run_log: The following attributes have been referenced
+run_log: 
+run_log: ..Customer.balance: constraint
+run_log: ..Customer.credit_limit: constraint
+run_log: ..Customer.balance: aggregate derivation
+run_log: ..Order.date_shipped: aggregate where clause
+run_log: ..Order.amount_total: sum derived from
+run_log: ..Customer.balance: constraint
+run_log: ..Customer.credit_limit: constraint
+run_log: ..Customer.name: constraint
+run_log: ..Customer.name: constraint
+run_log: ..Order.amount_total: aggregate derivation
+run_log: ..Item.amount: sum derived from
+run_log: ..Item.quantity: - formula
+run_log: ..Item.unit_price: - formula
+run_log: ..Item.unit_price: parent copy derivation
+run_log: ..Product.unit_price: parent copy from
+run_log: 
+run_log: The following rules have been activated
+run_log: Rule Bank[0xffffaa0f9cd0] (loaded 2025-03-13 06:29:54.538632)
+run_log: Mapped Class[Customer] rules:
+run_log: Constraint Function: None
+run_log: Derive <class 'database.models.Customer'>.balance as Sum(Order.amount_total Where Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None) - <function init_rule.<locals>.<lambda> at 0xffffa9e168e0>)
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Mapped Class[Order] rules:
+run_log: Derive <class 'database.models.Order'>.amount_total as Sum(Item.amount Where  - None)
+run_log: RowEvent Order.send_row_to_kafka()
+run_log: Mapped Class[Item] rules:
+run_log: Derive <class 'database.models.Item'>.amount as Formula (1): Rule.formula(derive=Item.amount, as_expression=la [...]
+run_log: Derive <class 'database.models.Item'>.unit_price as Copy(product.unit_price)
+run_log: Logic Bank 01.20.26 - 13 rules loaded
+run_log: Exposing /Customer
+run_log: Exposing /Item
+run_log: Exposing /Order
+run_log: Exposing /OrderDetail
+run_log: Exposing /Product
+run_log: Declare   API - api/expose_api_models, endpoint for each table on localhost:8282, customizing...
+run_log: ..discovered services: ['ontimize_api.py', 'system.py', 'new_service.py', 'newer_service.py']
+run_log: Kafka Consumer not activated
+run_log: 
+run_log: API Logic Project loaded (not WSGI), version: 14.03.15
+run_log: .. startup message: normal start
+run_log: (running from docker container at flask_host: 0.0.0.0 - may require refresh)
+run_log: 
+run_log: API Logic Project (name: 01JP732DJNM0EKQXAF2KA7VKKB) starting:
+log: Project Running!
+run_log: ..Explore data and API at http_scheme://swagger_host:port http://localhost:6004   *
+run_log: .... with flask_host: 0.0.0.0
+run_log: .... and  swagger_port: 8282
+run_log: 
+run_log: Alert: These following are **Critical** to unlocking value for project: 01JP732DJNM0EKQXAF2KA7VKKB:
+run_log: .. see logic.declare_logic.py       --
+run_log: .. see security.declare_security.py -- ALERT:  *** Security Not Enabled ***
+run_log: 
+run_log: 
+run_log: *************************************************************************
+run_log: *   Startup Instructions: Open your Browser at: http://localhost:6004   *
+run_log: *************************************************************************
+run_log: 
+run_log: * Serving Flask app 'API Logic Server'
+run_log: * Debug mode: on
+run_log: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+run_log: * Running on all addresses (0.0.0.0)
+run_log: * Running on http://127.0.0.1:6004
+run_log: * Running on http://172.17.0.2:6004
+run_log: [33mPress CTRL+C to quit[0m
+run_log: * Restarting with stat
+run_log: 
+log: Starting Project..
+run_log: API Logic Project Server Setup (01JP732DJNM0EKQXAF2KA7VKKB) Starting with CLI args:
+run_log: .. api_logic_server_run.py
+run_log: 
+run_log: Created August 03, 2024 09:34:01 at /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB
+run_log: 
+run_log: Data Model Loaded, customizing...
+run_log: ..discovered models: []
+run_log: LogicBank Activation - declare_logic.py
+run_log: Loading rules from /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/logic/wg_rules
+run_log: 01JP733V268CKQNJPD728B8Y5H rule file: logic/wg_rules/Customer_Balance_Rule.py
+run_log: 01JP733V29MY8WSZVNH7XA1MJT rule file: logic/wg_rules/Customer_Balance_Sum_Rule.py
+run_log: 01JP733V2AA51Q598FT9NNAMDN rule file: logic/wg_rules/Order_Amount_Total_Sum_Rule.py
+run_log: 01JP733V2BMD1W3QZX4RZ92QX1 rule file: logic/wg_rules/Item_Amount_Formula_Rule.py
+run_log: 01JP733V2CZX51BKNT6FHPF0N8 rule file: logic/wg_rules/Item_Unit_Price_Copy_Rule.py
+run_log: 01JP732EZV7MB5EW8X45B6X8FE rule file: logic/wg_rules/Customer_Balance_Constraint.py
+run_log: 01JP732F0AF6ECED61ENW0PT21 rule file: logic/wg_rules/Order_Kafka_Integration.py
+run_log: 01JP732F0D701XE32B8SJNE0JR rule file: logic/wg_rules/Customer_Name_Constraint.py
+run_log: 01JP732F0GBQ2A9KWHVX5AGQNK rule file: logic/wg_rules/Customer_Name_Constraint.py
+run_log: [32mLoading Rule Module Customer_Balance_Rule 01JP733V268CKQNJPD728B8Y5H [0m
+run_log: [32mLoading Rule Module Customer_Balance_Sum_Rule 01JP733V29MY8WSZVNH7XA1MJT [0m
+run_log: [32mLoading Rule Module Order_Amount_Total_Sum_Rule 01JP733V2AA51Q598FT9NNAMDN [0m
+run_log: [32mLoading Rule Module Item_Amount_Formula_Rule 01JP733V2BMD1W3QZX4RZ92QX1 [0m
+run_log: [32mLoading Rule Module Item_Unit_Price_Copy_Rule 01JP733V2CZX51BKNT6FHPF0N8 [0m
+run_log: [32mLoading Rule Module Customer_Balance_Constraint 01JP732EZV7MB5EW8X45B6X8FE [0m
+run_log: [32mLoading Rule Module Order_Kafka_Integration 01JP732F0AF6ECED61ENW0PT21 [0m
+run_log: [32mLoading Rule Module Customer_Name_Constraint 01JP732F0D701XE32B8SJNE0JR [0m
+run_log: [32mLoading Rule Module Customer_Name_Constraint 01JP732F0GBQ2A9KWHVX5AGQNK [0m
+run_log: 
+run_log: The following rules have been loaded
+run_log: Rule Bank[0xffffb2bb65a0] (loaded 2025-03-13 06:29:55.104823)
+run_log: Mapped Class[Customer] rules:
+run_log: Constraint Function: None
+run_log: Derive <class 'database.models.Customer'>.balance as Sum(Order.amount_total Where Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None) - <function init_rule.<locals>.<lambda> at 0xffffb161e8e0>)
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Mapped Class[Order] rules:
+run_log: Derive <class 'database.models.Order'>.amount_total as Sum(Item.amount Where  - None)
+run_log: RowEvent Order.send_row_to_kafka()
+run_log: Mapped Class[Item] rules:
+run_log: Derive <class 'database.models.Item'>.amount as Formula (-1): Rule.formula(derive=Item.amount, as_expression=la [...]
+run_log: Derive <class 'database.models.Item'>.unit_price as Copy(product.unit_price)
+run_log: 
+run_log: The following attributes have been referenced
+run_log: 
+run_log: ..Customer.balance: constraint
+run_log: ..Customer.credit_limit: constraint
+run_log: ..Customer.balance: aggregate derivation
+run_log: ..Order.date_shipped: aggregate where clause
+run_log: ..Order.amount_total: sum derived from
+run_log: ..Customer.balance: constraint
+run_log: ..Customer.credit_limit: constraint
+run_log: ..Customer.name: constraint
+run_log: ..Customer.name: constraint
+run_log: ..Order.amount_total: aggregate derivation
+run_log: ..Item.amount: sum derived from
+run_log: ..Item.quantity: - formula
+run_log: ..Item.unit_price: - formula
+run_log: ..Item.unit_price: parent copy derivation
+run_log: ..Product.unit_price: parent copy from
+run_log: 
+run_log: The following rules have been activated
+run_log: Rule Bank[0xffffb2bb65a0] (loaded 2025-03-13 06:29:55.104823)
+run_log: Mapped Class[Customer] rules:
+run_log: Constraint Function: None
+run_log: Derive <class 'database.models.Customer'>.balance as Sum(Order.amount_total Where Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None) - <function init_rule.<locals>.<lambda> at 0xffffb161e8e0>)
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Constraint Function: None
+run_log: Mapped Class[Order] rules:
+run_log: Derive <class 'database.models.Order'>.amount_total as Sum(Item.amount Where  - None)
+run_log: RowEvent Order.send_row_to_kafka()
+run_log: Mapped Class[Item] rules:
+run_log: Derive <class 'database.models.Item'>.amount as Formula (1): Rule.formula(derive=Item.amount, as_expression=la [...]
+run_log: Derive <class 'database.models.Item'>.unit_price as Copy(product.unit_price)
+run_log: Logic Bank 01.20.26 - 13 rules loaded
+run_log: Exposing /Customer
+run_log: Exposing /Item
+run_log: Exposing /Order
+run_log: Exposing /OrderDetail
+run_log: Exposing /Product
+run_log: Declare   API - api/expose_api_models, endpoint for each table on localhost:8282, customizing...
+run_log: ..discovered services: ['ontimize_api.py', 'system.py', 'new_service.py', 'newer_service.py']
+run_log: Kafka Consumer not activated
+run_log: 
+run_log: API Logic Project loaded (not WSGI), version: 14.03.15
+run_log: .. startup message: normal start
+run_log: (running from docker container at flask_host: 0.0.0.0 - may require refresh)
+run_log: 
+run_log: API Logic Project (name: 01JP732DJNM0EKQXAF2KA7VKKB) starting:
+log: Project Running!
+run_log: ..Explore data and API at http_scheme://swagger_host:port http://localhost:6004   *
+run_log: .... with flask_host: 0.0.0.0
+run_log: .... and  swagger_port: 8282
+run_log: 
+run_log: Alert: These following are **Critical** to unlocking value for project: 01JP732DJNM0EKQXAF2KA7VKKB:
+run_log: .. see logic.declare_logic.py       --
+run_log: .. see security.declare_security.py -- ALERT:  *** Security Not Enabled ***
+run_log: 
+run_log: 
+run_log: *************************************************************************
+run_log: *   Startup Instructions: Open your Browser at: http://localhost:6004   *
+run_log: *************************************************************************
+run_log: 
+run_log: * Debugger is active!
+run_log: * Debugger PIN: 166-224-166
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:03] "GET /ui/admin/admin.yaml?v=1741847403629 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:03] "GET /ui/admin/admin.yaml?v=1741847403927 HTTP/1.0" 200 -
+run_log: Can't get count for <class 'database.spa_models.spa_page.SPAPage'> ((sqlite3.OperationalError) no such table: spa_pages
+run_log: [SQL: SELECT count(*) AS count_1
+run_log: FROM (SELECT spa_pages.id AS spa_pages_id, spa_pages.name AS spa_pages_name, spa_pages.contact AS spa_pages_contact
+run_log: FROM spa_pages) AS anon_1]
+run_log: (Background on this error at: https://sqlalche.me/e/20/e3q8))
+run_log: Generic Error: (sqlite3.OperationalError) no such table: spa_pages
+run_log: [SQL: SELECT spa_pages.id AS spa_pages_id, spa_pages.name AS spa_pages_name, spa_pages.contact AS spa_pages_contact
+run_log: FROM spa_pages ORDER BY spa_pages.name
+run_log: LIMIT ? OFFSET ?]
+run_log: [parameters: (10, 0)]
+run_log: (Background on this error at: https://sqlalche.me/e/20/e3q8)
+run_log: Error in http://localhost/01JP732DJNM0EKQXAF2KA7VKKB/SPAPage?include=SectionList&page[limit]=10&page[number]=1&page[offset]=0&page[size]=10&sort=name
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1968, in _exec_single_context
+run_log: self.dialect.do_execute(
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 920, in do_execute
+run_log: cursor.execute(statement, parameters)
+run_log: sqlite3.OperationalError: no such table: spa_pages
+run_log: 
+run_log: The above exception was the direct cause of the following exception:
+run_log: 
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/jsonapi_formatting.py", line 201, in paginate
+run_log: instances = res_query.all()
+run_log: ^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+run_log: return self._iter().all()  # type: ignore
+run_log: ^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+run_log: result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+run_log: ^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2232, in execute
+run_log: return self._execute_internal(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2127, in _execute_internal
+run_log: result: Result[Any] = compile_state_cls.orm_execute_statement(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+run_log: result = conn.execute(
+run_log: ^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1413, in execute
+run_log: return meth(
+run_log: ^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+run_log: return connection._execute_clauseelement(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+run_log: ret = self._execute_context(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+run_log: return self._exec_single_context(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1987, in _exec_single_context
+run_log: self._handle_dbapi_exception(
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2344, in _handle_dbapi_exception
+run_log: raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1968, in _exec_single_context
+run_log: self.dialect.do_execute(
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 920, in do_execute
+run_log: cursor.execute(statement, parameters)
+run_log: sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: spa_pages
+run_log: [SQL: SELECT spa_pages.id AS spa_pages_id, spa_pages.name AS spa_pages_name, spa_pages.contact AS spa_pages_contact
+run_log: FROM spa_pages ORDER BY spa_pages.name
+run_log: LIMIT ? OFFSET ?]
+run_log: [parameters: (10, 0)]
+run_log: (Background on this error at: https://sqlalche.me/e/20/e3q8)
+run_log: 
+run_log: 
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1968, in _exec_single_context
+run_log: self.dialect.do_execute(
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 920, in do_execute
+run_log: cursor.execute(statement, parameters)
+run_log: sqlite3.OperationalError: no such table: spa_pages
+run_log: 
+run_log: The above exception was the direct cause of the following exception:
+run_log: 
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/jsonapi_formatting.py", line 201, in paginate
+run_log: instances = res_query.all()
+run_log: ^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+run_log: return self._iter().all()  # type: ignore
+run_log: ^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+run_log: result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+run_log: ^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2232, in execute
+run_log: return self._execute_internal(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2127, in _execute_internal
+run_log: result: Result[Any] = compile_state_cls.orm_execute_statement(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+run_log: result = conn.execute(
+run_log: ^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1413, in execute
+run_log: return meth(
+run_log: ^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+run_log: return connection._execute_clauseelement(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1637, in _execute_clauseelement
+run_log: ret = self._execute_context(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+run_log: return self._exec_single_context(
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1987, in _exec_single_context
+run_log: self._handle_dbapi_exception(
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2344, in _handle_dbapi_exception
+run_log: raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1968, in _exec_single_context
+run_log: self.dialect.do_execute(
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 920, in do_execute
+run_log: cursor.execute(statement, parameters)
+run_log: sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: spa_pages
+run_log: [SQL: SELECT spa_pages.id AS spa_pages_id, spa_pages.name AS spa_pages_name, spa_pages.contact AS spa_pages_contact
+run_log: FROM spa_pages ORDER BY spa_pages.name
+run_log: LIMIT ? OFFSET ?]
+run_log: [parameters: (10, 0)]
+run_log: (Background on this error at: https://sqlalche.me/e/20/e3q8)
+run_log: 
+run_log: During handling of the above exception, another exception occurred:
+run_log: 
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/safrs_api.py", line 674, in method_wrapper
+run_log: result = fun(*args, **kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/jsonapi.py", line 277, in get
+run_log: links, data, count = paginate(instances, self.SAFRSObject)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/jsonapi_formatting.py", line 216, in paginate
+run_log: raise GenericError(f"{exc}")
+run_log: safrs.errors.GenericError
+run_log: Exception on /01JP732DJNM0EKQXAF2KA7VKKB/SPAPage [GET]
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+run_log: rv = self.dispatch_request()
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+run_log: return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/flask_restful/__init__.py", line 489, in wrapper
+run_log: resp = resource(*args, **kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/flask_restful_swagger_2/__init__.py", line 39, in decorator
+run_log: return f(*args, **kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/flask/views.py", line 109, in view
+run_log: return current_app.ensure_sync(self.dispatch_request)(**kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+run_log: resp = meth(*args, **kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/flask_restful_swagger_2/swagger.py", line 219, in inner
+run_log: return f(self, *args, **kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/safrs_api.py", line 708, in method_wrapper
+run_log: abort(status_code, errors=[errors])
+run_log: File "/usr/local/lib/python3.12/site-packages/flask_restful/__init__.py", line 32, in abort
+run_log: original_flask_abort(http_status_code)
+run_log: File "/usr/local/lib/python3.12/site-packages/flask/helpers.py", line 277, in abort
+run_log: current_app.aborter(code, *args, **kwargs)
+run_log: File "/usr/local/lib/python3.12/site-packages/werkzeug/exceptions.py", line 861, in __call__
+run_log: raise self.mapping[code](*args, **kwargs)
+run_log: werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:03] "[35m[1mGET /01JP732DJNM0EKQXAF2KA7VKKB/SPAPage?include=SectionList&page[limit]=10&page[number]=1&page[offset]=0&page[size]=10&sort=name HTTP/1.0[0m" 500 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:04] "GET /ui/admin/admin.yaml?v=1741847404199 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:06] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer?include=&page[limit]=25&page[number]=1&page[offset]=0&page[size]=25&sort=-id HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:06] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer?include=&page[limit]=25&page[number]=1&page[offset]=0&page[size]=25&sort=name HTTP/1.0" 200 -
+run_log: 
+run_log: Logic Phase:		ROW LOGIC		(session=0xffffb0060b00) (sqlalchemy before_flush)
+run_log: ..Customer[None] {Insert - client} id: None, name: x, balance: None, credit_limit: None  row: 0xffffabf50380  session: 0xffffb0060b00  ins_upd_dlt: ins, initial: ins
+run_log: ..Customer[None] {server aggregate_defaults: balance } id: None, name: x, balance: 0, credit_limit: None  row: 0xffffabf50380  session: 0xffffb0060b00  ins_upd_dlt: ins, initial: ins
+run_log: ..Customer[None] {server all_defaults: credit_limit } id: None, name: x, balance: 0, credit_limit: 0  row: 0xffffabf50380  session: 0xffffb0060b00  ins_upd_dlt: ins, initial: ins
+run_log: Logic Phase:		COMMIT LOGIC		(session=0xffffb0060b00)
+run_log: Logic Phase:		AFTER_FLUSH LOGIC	(session=0xffffb0060b00)
+run_log: 
+run_log: These Rules Fired (see Logic Phases, above, for actual order):		##
+run_log: 
+run_log: Logic Phase:		COMPLETE(session=0xffffb0060b00))
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:12] "[35m[1mPOST /01JP732DJNM0EKQXAF2KA7VKKB/Customer HTTP/1.0[0m" 201 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:12] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order?filter[customer_id]=5&page[limit]=25&page[offset]=0&sort=-id&include=ItemList,OrderDetailList,customer,ItemList,OrderDetailList,customer HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:12] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/5?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:30:12] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/5?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:17] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer?include=&page[limit]=25&page[number]=1&page[offset]=0&page[size]=25&sort=-id HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:17] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer?include=&page[limit]=25&page[number]=1&page[offset]=0&page[size]=25&sort=name HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:20] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/1?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:20] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/1?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:20] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order?filter[customer_id]=1&page[limit]=25&page[offset]=0&sort=-id&include=ItemList,OrderDetailList,customer,ItemList,OrderDetailList,customer HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/1?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order/1?include=ItemList,OrderDetailList,customer,ItemList,OrderDetailList,customer&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order/1?include=ItemList,OrderDetailList,customer,ItemList,OrderDetailList,customer&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/1?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Item?filter[order_id]=1&page[limit]=25&page[offset]=0&sort=-id&include=OrderDetailList,order,product,OrderDetailList,order,product HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order/1?include=ItemList,OrderDetailList,customer,ItemList,OrderDetailList,customer&page[limit]=2 HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Customer/1?include=OrderList,OrderList&page[limit]=2 HTTP/1.0" 200 -
+run_log: Not found: Invalid "Product" ID "2"
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "[33mGET /01JP732DJNM0EKQXAF2KA7VKKB/Product/2?include=ItemList,ItemList&page[limit]=2 HTTP/1.0[0m" 404 -
+run_log: Not found: Invalid "Product" ID "1"
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:23] "[33mGET /01JP732DJNM0EKQXAF2KA7VKKB/Product/1?include=ItemList,ItemList&page[limit]=2 HTTP/1.0[0m" 404 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:27] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Product?include=&page[limit]=25&page[number]=1&page[offset]=0&page[size]=25&sort=-id HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:27] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order?include=customer,customer&page[limit]=25&page[number]=1&page[offset]=0&page[size]=25&sort=-id HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:27] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Product?filter[id]=2&include=&page[limit]=10&page[number]=1&page[offset]=0&page[size]=10&sort=name HTTP/1.0" 200 -
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:27] "GET /01JP732DJNM0EKQXAF2KA7VKKB/Order?filter[id]=1&include=customer,customer&page[limit]=10&page[number]=1&page[offset]=0&page[size]=10&sort=id HTTP/1.0" 200 -
+run_log: 
+run_log: Logic Phase:		ROW LOGIC		(session=0xffffabfe8ef0) (sqlalchemy before_flush)
+run_log: ..Item[2] {Update - client} id: 2, order_id: 1, product_id: 2, quantity:  [5-->] 5555, unit_price: 20, amount: 100  row: 0xffffabfeb980  session: 0xffffabfe8ef0  ins_upd_dlt: upd, initial: upd
+run_log: ..Item[2] {Formula amount} id: 2, order_id: 1, product_id: 2, quantity:  [5-->] 5555, unit_price: 20, amount:  [100-->] 111100  row: 0xffffabfeb980  session: 0xffffabfe8ef0  ins_upd_dlt: upd, initial: upd
+run_log: ....Order[1] {Update - Adjusting order: amount_total} id: 1, customer_id: 1, amount_total:  [200.0000000000-->] 111200.0000000000, date_shipped: None, notes: Urgent  row: 0xffffab530650  session: 0xffffabfe8ef0  ins_upd_dlt: upd, initial: upd
+run_log: ......Customer[1] {Update - Adjusting customer: balance} id: 1, name: Alice, balance:  [500.0000000000-->] 111500.0000000000, credit_limit: 1000.0000000000  row: 0xffffab530890  session: 0xffffabfe8ef0  ins_upd_dlt: upd, initial: upd
+run_log: ......Customer[1] {Constraint Failure: Customer balance (111500.0000000000) exceeds credit limit (1000.0000000000)} id: 1, name: Alice, balance:  [500.0000000000-->] 111500.0000000000, credit_limit: 1000.0000000000  row: 0xffffab530890  session: 0xffffabfe8ef0  ins_upd_dlt: upd, initial: upd
+run_log: 
+run_log: These Rules Fired (see Logic Phases, above, for actual order):		##
+run_log: Customer		##
+run_log: 1. Constraint Function: None 		##
+run_log: 2. Derive <class 'database.models.Customer'>.balance as Sum(Order.amount_total Where Rule.sum(derive=Customer.balance, as_sum_of=Order.amount_total, where=lambda row: row.date_shipped is None) - <function init_rule.<locals>.<lambda> at 0xffffb161e8e0>)		##
+run_log: Item		##
+run_log: 3. Derive <class 'database.models.Item'>.amount as Formula (1): Rule.formula(derive=Item.amount, as_expression=la [...]		##
+run_log: Order		##
+run_log: 4. Derive <class 'database.models.Order'>.amount_total as Sum(Item.amount Where  - None)		##
+run_log: 
+run_log: Traceback (most recent call last):
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/safrs_api.py", line 674, in method_wrapper
+run_log: result = fun(*args, **kwargs)
+run_log: ^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/jsonapi.py", line 324, in patch
+run_log: instance = self._patch_instance(data, id)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/jsonapi.py", line 360, in _patch_instance
+run_log: instance._s_patch(**attributes)
+run_log: File "/usr/local/lib/python3.12/site-packages/safrs/base.py", line 485, in _s_patch
+run_log: safrs.DB.session.commit()
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 553, in commit
+run_log: return self._proxied.commit()
+run_log: ^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1906, in commit
+run_log: trans.commit(_to_root=True)
+run_log: File "<string>", line 2, in commit
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+run_log: ret_value = fn(self, *arg, **kw)
+run_log: ^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1221, in commit
+run_log: self._prepare_impl()
+run_log: File "<string>", line 2, in _prepare_impl
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+run_log: ret_value = fn(self, *arg, **kw)
+run_log: ^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1196, in _prepare_impl
+run_log: self.session.flush()
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4154, in flush
+run_log: self._flush(objects)
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4183, in _flush
+run_log: self.dispatch.before_flush(self, flush_context, objects)
+run_log: File "/usr/local/lib/python3.12/site-packages/sqlalchemy/event/attr.py", line 378, in __call__
+run_log: fn(*args, **kw)
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_trans_logic/listeners.py", line 65, in before_flush
+run_log: logic_row.update(reason="client")
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1250, in update
+run_log: self._adjust_parent_aggregates()  # parent chaining (sum / count adjustments)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1189, in _adjust_parent_aggregates
+run_log: parent_adjuster.save_altered_parents(do_not_adjust_list=do_not_adjust_list)  # iff req'd (altered only)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1407, in save_altered_parents
+run_log: parent_logic_row.update(
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1250, in update
+run_log: self._adjust_parent_aggregates()  # parent chaining (sum / count adjustments)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1189, in _adjust_parent_aggregates
+run_log: parent_adjuster.save_altered_parents(do_not_adjust_list=do_not_adjust_list)  # iff req'd (altered only)
+run_log: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1407, in save_altered_parents
+run_log: parent_logic_row.update(
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 1251, in update
+run_log: self._constraints()
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/exec_row_logic/logic_row.py", line 795, in _constraints
+run_log: each_constraint.execute(self)
+run_log: File "/usr/local/lib/python3.12/site-packages/logic_bank/rule_type/constraint.py", line 87, in execute
+run_log: ll.constraint_event(message=msg, logic_row=logic_row, constraint=self)
+run_log: File "/opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/config/server_setup.py", line 282, in constraint_handler
+run_log: raise ValidationErrorExt(message=message, detail=detail)
+run_log: config.server_setup.ValidationErrorExt
+run_log: 127.0.0.1 - - [13/Mar/2025 06:31:31] "[31m[1mPATCH /01JP732DJNM0EKQXAF2KA7VKKB/Item/2 HTTP/1.0[0m" 400 -

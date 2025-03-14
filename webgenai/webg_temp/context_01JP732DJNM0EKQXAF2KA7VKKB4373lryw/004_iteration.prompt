@@ -1,0 +1,7 @@
+update model
+<task>Create at least 12 tables</task>
+Hints: <fixUpHints>
+- In case of 'AttributeError' and or 'Missing Attributes': make sure the mentioned attributes exist in the corresponding models, add them if they don't exist.
+- In case of NameError: The rule references a model that does not exist. Create a new sqlalchemy model, check the rule for relevant attributes.
+- In case of SyntaxError: make sure the python code is correct.
+</fixUpHints>

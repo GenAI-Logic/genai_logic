@@ -1,0 +1,13 @@
+..  db_url: sqlite:////opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB/database/test_data/db.sqlite
+..  cwd: /opt/projects/by-ulid/01JP732DJNM0EKQXAF2KA7VKKB
+..  python_loc: /usr/local/bin/python
+..  test_data_loader version: 1.1
+..  LogicBank activated
+print(Pass: 1)
+Error adding variable to session: type object 'Order' has no attribute '_s_class_name'
+Error adding variable to session: Missing Parent: order
+print(Pass: 2)
+Error adding variable to session: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: type object 'Order' has no attribute '_s_class_name' (Background on this error at: https://sqlalche.me/e/20/7s2a)
+print(Pass: 3)
+print(Pass: 4)
+print(Pass: 5)

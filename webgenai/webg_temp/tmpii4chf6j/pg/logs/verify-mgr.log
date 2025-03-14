@@ -1,0 +1,262 @@
+
+API Logic Project Server Setup (01JP90FC418VGZAH8DMNCEEY4M) Starting with CLI args: 
+.. /opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/alp_verify_only.py
+
+Created August 03, 2024 09:34:01 at /opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M
+
+
+server_setup - get_args: Config args: 
+.. flask_host: 0.0.0.0, port: 5656, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /api, 
+.. | verbose: False, create_and_run: False
+config - get_cli_args: Getting cli args, with hostname=5ce0d2cccb84 on local_ip=172.17.0.2
+config - get_cli_args: WSGI - no args, using creation default host/port..  sys.argv = ['/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/alp_verify_only.py']
+
+
+server_setup - get_args: CLI args: 
+.. flask_host: 0.0.0.0, port: 5656, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /api, 
+.. | verbose: False, create_and_run: False
+
+server_setup - get_args: ENV args: 
+.. flask_host: 0.0.0.0, port: 4444, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /01JP90FC418VGZAH8DMNCEEY4M, 
+.. | verbose: False, create_and_run: False
+
+
+
+server_setup - get_args: ENV args: 
+.. flask_host: 0.0.0.0, port: 4444, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /01JP90FC418VGZAH8DMNCEEY4M, 
+.. | verbose: False, create_and_run: False
+
+
+
+Config args: 
+.. flask_host: 0.0.0.0, port: 4444, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /01JP90FC418VGZAH8DMNCEEY4M, 
+.. | verbose: False, create_and_run: False
+config - get_cli_args: Getting cli args, with hostname=5ce0d2cccb84 on local_ip=172.17.0.2
+config - get_cli_args: No arguments - using creation default host/port
+
+CLI args: 
+.. flask_host: 0.0.0.0, port: 4444, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /01JP90FC418VGZAH8DMNCEEY4M, 
+.. | verbose: False, create_and_run: False
+
+ENV args: 
+.. flask_host: 0.0.0.0, port: 4444, 
+.. swagger_host: localhost, swagger_port: 8282, 
+.. client_uri: None, 
+.. http_scheme: http, api_prefix: /01JP90FC418VGZAH8DMNCEEY4M, 
+.. | verbose: False, create_and_run: False
+
+
+sqlite_db_path validity check with db_uri: postgresql://postgres:p@10.0.0.249/postgres
+
+
+sys_info here
+
+Environment Variables...
+.. APILOGICPROJECT_EXTERNAL_HOST = localhost
+.. WG_SQLALCHEMY_DATABASE_URI = sqlite:////opt/projects/wgadmin/db.sqlite
+.. VITE_PORT = 6007
+.. ALL_DEFAULTS = True
+.. APILOGICSERVER_CHATGPT_AZURE_ENDPOINT = 
+.. APILOGICPROJECT_SWAGGER_PORT = 8282
+.. GH_TOKEN = {personal access token from github}
+.. APILOGICPROJECT_PORT = 4444
+.. LOG_DIR = /opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/logs
+.. GH_ORG = github.com/<gh-user-name>
+.. APILOGICPROJECT_EXTERNAL_PORT = 8282
+.. SECURITY_ENABLED = false
+.. APILOGICPROJECT_IS_GENAI_DEMO = False
+.. GENAI_LOGIC_PROD = None
+.. PATH = /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/api_logic_server/bin
+.. APILOGICSERVER_CHATGPT_APIKEY = 
+.. APILOGICSERVER_CHATGPT_AZURE_API_VERSION = 
+.. PROJECT_ID = 01JP90FC418VGZAH8DMNCEEY4M
+.. APILOGICPROJECT_HTTP_SCHEME = http
+.. PROJ_ROOT = /opt/projects/by-ulid
+.. APILOGICPROJECT_API_PREFIX = /01JP90FC418VGZAH8DMNCEEY4M
+.. URL_ROOT = http://localhost:8282
+.. PWD = /opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M
+.. VERIFY_RULES = True
+.. PYTHONPATH = /opt/webgenai:/opt/webgenai
+.. WG_PROJECT = True
+.. APILOGICPROJECT_SWAGGER_HOST = localhost
+.. LOGICBANK_FAILSAFE = true
+.. LC_CTYPE = C.UTF-8
+.. SECRET_KEY = whatnothow
+.. SQLALCHEMY_TRACK_MODIFICATIONS = False
+.. SQLAlCHEMY_ECHO = False
+
+
+flask_app.config: 
+	
+<Config {'DEBUG': None,
+	'TESTING': False,
+	'PROPAGATE_EXCEPTIONS': False,
+	'SECRET_KEY': 'whatnothow',
+	'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=31),
+	'USE_X_SENDFILE': False,
+	'SERVER_NAME': None,
+	'APPLICATION_ROOT': '/',
+	'SESSION_COOKIE_NAME': 'session',
+	'SESSION_COOKIE_DOMAIN': None,
+	'SESSION_COOKIE_PATH': None,
+	'SESSION_COOKIE_HTTPONLY': True,
+	'SESSION_COOKIE_SECURE': False,
+	'SESSION_COOKIE_SAMESITE': None,
+	'SESSION_REFRESH_EACH_REQUEST': True,
+	'MAX_CONTENT_LENGTH': None,
+	'SEND_FILE_MAX_AGE_DEFAULT': None,
+	'TRAP_BAD_REQUEST_ERRORS': None,
+	'TRAP_HTTP_EXCEPTIONS': False,
+	'EXPLAIN_TEMPLATE_LOADING': False,
+	'PREFERRED_URL_SCHEME': 'http',
+	'TEMPLATES_AUTO_RELOAD': None,
+	'MAX_COOKIE_SIZE': 4093,
+	'API_PREFIX': '/01JP90FC418VGZAH8DMNCEEY4M',
+	'FLASK_HOST': '0.0.0.0',
+	'SWAGGER_HOST': 'localhost',
+	'PORT': 4444,
+	'SWAGGER_PORT': '8282',
+	'HTTP_SCHEME': 'http',
+	'KAFKA_PRODUCER': None,
+	'KAFKA_CONSUMER': None,
+	'N8N_PRODUCER': None,
+	'KEYCLOAK_BASE': 'http://localhost:8080/realms/kcals',
+	'KEYCLOAK_REALM': 'kcals',
+	'KEYCLOAK_BASE_URL': 'http://localhost:8080',
+	'KEYCLOAK_CLIENT_ID': 'alsclient',
+	'BACKTIC_AS_QUOTE': False,
+	'ONTIMIZE_SERVICE_TYPE': 'OntimizeEE',
+	'VERBOSE': False,
+	'CREATE_AND_RUN': False,
+	'CREATED_API_PREFIX': '/api',
+	'CREATED_FLASK_HOST': '0.0.0.0',
+	'CREATED_HTTP_SCHEME': 'http',
+	'CREATED_PORT': '5656',
+	'CREATED_SWAGGER_HOST': 'localhost',
+	'CREATED_SWAGGER_PORT': '5656',
+	'FLASK_APP': None,
+	'FLASK_ENV': None,
+	'OPT_LOCKING': 'optional',
+	'SECURITY_ENABLED': False,
+	'SECURITY_PROVIDER': None,
+	'SQLALCHEMY_DATABASE_URI': 'postgresql://postgres:p@10.0.0.249/postgres',
+	'SQLALCHEMY_DATABASE_URI_AUTHENTICATION': 'sqlite:////opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/database/authentication_db.sqlite',
+	'SQLALCHEMY_DATABASE_URI_LANDING': 'sqlite:////opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/database/db_spa.sqlite',
+	'SQLALCHEMY_TRACK_MODIFICATIONS': False,
+	'EXTERNAL_HOST': 'localhost',
+	'EXTERNAL_PORT': 8282,
+	'IS_GENAI_DEMO': 'False'}>
+
+
+PYTHONPATH..
+../opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M
+../opt/webgenai
+../usr/local/lib/python312.zip
+../usr/local/lib/python3.12
+../usr/local/lib/python3.12/lib-dynload
+../usr/local/lib/python3.12/site-packages
+../home/api_logic_server
+../opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M
+../home/api_logic_server
+
+sys.prefix (venv): /usr/local
+
+
+hostname=5ce0d2cccb84 on local_ip=172.17.0.2, IPAddr=172.17.0.2
+
+
+os.getcwd()=/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M
+
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1968, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 920, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: near "(": syntax error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/alp_verify_only.py", line 78, in <module>
+    server_setup.api_logic_server_setup(flask_app, args)
+  File "/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/config/server_setup.py", line 311, in api_logic_server_setup
+    from api import expose_api_models, customize_api
+  File "/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/api/customize_api.py", line 7, in <module>
+    from api.landing_page import add_landing_page
+  File "/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/api/landing_page/__init__.py", line 7, in <module>
+    from database.spa_models.spa_page import SPASection, SPAPage, SPAComponent
+  File "/opt/projects/by-ulid/01JP90FC418VGZAH8DMNCEEY4M/database/spa_models/spa_page.py", line 196, in <module>
+    Base.metadata.create_all(engine)
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/schema.py", line 5796, in create_all
+    bind._run_ddl_visitor(
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3244, in _run_ddl_visitor
+    conn._run_ddl_visitor(visitorcallable, element, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2448, in _run_ddl_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/visitors.py", line 670, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/ddl.py", line 922, in visit_metadata
+    self.traverse_single(
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/visitors.py", line 670, in traverse_single
+    return meth(obj, **kw)
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/ddl.py", line 961, in visit_table
+    )._invoke_with(self.connection)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/ddl.py", line 315, in _invoke_with
+    return bind.execute(self)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1413, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/sql/ddl.py", line 181, in _execute_on_connection
+    return connection._execute_ddl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1525, in _execute_ddl
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1987, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2344, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1968, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 920, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) near "(": syntax error
+[SQL: 
+CREATE TABLE device_types (
+	"unique_id" INTEGER DEFAULT nextval('device_types_unique_id_seq'::regclass) NOT NULL, 
+	"device_type" TEXT NOT NULL, 
+	"create_date" DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	"update_date" DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	"is_inactive" BOOLEAN DEFAULT false, 
+	PRIMARY KEY ("unique_id"), 
+	UNIQUE ("device_type")
+)
+
+]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
