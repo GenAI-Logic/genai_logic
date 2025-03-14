@@ -1,9 +1,0 @@
-[
-    {
-        "name": "Customer Name Constraint",
-        "description": "Ensures that the customer's name cannot be 'y'.",
-        "use_case": "Customer.name != 'y'",
-        "entity": "Customer",
-        "code": "Rule.constraint(validate=Customer,\n                as_condition=lambda row: row.name != 'y',\n                error_msg=\"Customer name cannot be 'y'\")"
-    }
-]
