@@ -43,8 +43,10 @@ Your install includes a few sample systems at: samples.
 To run the default sample:
 
 ```bash
-sh run_sample nw_sample
+sh run_sample.sh nw_sample
 ```
+
+And then open your browser at [http://localhost:5656](http://localhost:5656).
 
 To run a different sample, replace `nw_sample` with the sample directory.  Only 1 sample can be running at a time.
 
