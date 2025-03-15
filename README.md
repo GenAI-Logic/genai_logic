@@ -28,9 +28,9 @@ Once you have installed (above):
 sh run_web_genai.sh
 ```
 
-Open your [browser at](localhost:8282)
+Open your browser at [http://localhost:8282](http://localhost:8282).
 
-Find the [documentation here](https://apilogicserver.github.io/Docs/WebGenAI/)
+Find the [documentation here](https://apilogicserver.github.io/Docs/WebGenAI/).
 
 &nbsp;
 
