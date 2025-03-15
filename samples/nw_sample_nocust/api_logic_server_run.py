@@ -13,15 +13,15 @@
 #
 #    You typically do not customize this file.
 #
-#    (v 14.03.15, March 12, 2025 19:31:04)
+#    (v 14.03.16, March 14, 2025 17:05:02)
 #
 #    See Main Code (at end).
 #        Use log messages to understand API and Logic activation.
 #
 ###############################################################################
 
-api_logic_server__version = '14.03.15'
-api_logic_server_created__on = 'March 12, 2025 19:31:04'
+api_logic_server__version = '14.03.16'
+api_logic_server_created__on = 'March 14, 2025 17:05:02'
 api_logic_server__host = 'localhost'
 api_logic_server__port = '5656'
 
@@ -100,7 +100,7 @@ server_setup.api_logic_server_setup(flask_app, args)
 AdminLoader.admin_events(flask_app = flask_app, args = args, validation_error = ValidationError)
 
 if __name__ == "__main__":
-    msg = f'API Logic Project loaded (not WSGI), version: 14.03.15\n'
+    msg = f'API Logic Project loaded (not WSGI), version: 14.03.16\n'
     msg += f'.. startup message: {start_up_message}\n'
     if server_setup.is_docker():
         msg += f' (running from docker container at flask_host: {args.flask_host} - may require refresh)\n'
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 
     flask_app.run(host=args.flask_host, threaded=True, port=args.port)
 else:
-    msg = f'API Logic Project Loaded (WSGI), version 14.03.15\n'
+    msg = f'API Logic Project Loaded (WSGI), version 14.03.16\n'
     msg += f'.. startup message: {start_up_message}\n'
 
     if server_setup.is_docker():

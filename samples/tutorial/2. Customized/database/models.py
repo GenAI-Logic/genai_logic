@@ -10,7 +10,7 @@ from sqlalchemy.ext.declarative import declarative_base
 # Alter this file per your database maintenance policy
 #    See https://apilogicserver.github.io/Docs/Project-Rebuild/#rebuilding
 #
-# Created:  March 12, 2025 19:31:02
+# Created:  March 14, 2025 17:05:00
 # Database: sqlite:////Users/val/dev/ApiLogicServer/ApiLogicServer-dev/build_and_test/ApiLogicServer/samples/tutorial/1. Instant_Creation/database/db.sqlite
 # Dialect:  sqlite
 #

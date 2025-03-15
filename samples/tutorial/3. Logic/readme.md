@@ -576,8 +576,8 @@ For information on Managing API Logic Projects, [click here](https://apilogicser
 
 | About                    | Info                               |
 |:-------------------------|:-----------------------------------|
-| Created                  | March 12, 2025 19:31:02                      |
-| API Logic Server Version | 14.03.15           |
+| Created                  | March 14, 2025 17:05:00                      |
+| API Logic Server Version | 14.03.16           |
 | Created in directory     | samples/tutorial/1. Instant_Creation |
 | API Name                 | api          |
 | Execution begins with    | `api_logic_server_run.py`          |

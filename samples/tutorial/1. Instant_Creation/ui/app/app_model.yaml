@@ -1,5 +1,5 @@
 about:
-  date: March 12, 2025 19:31:02
+  date: March 14, 2025 17:05:00
   recent_changes: works with modified safrs-react-admin
   version: 0.0.0
 api_root: '{http_type}://{swagger_host}:{port}/{api}'
@@ -256,29 +256,29 @@ application:
             menu_title: Order
             page:
               detail:
-                columns: ShipName,CloneFromOrder,City,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,Country,Ready,OrderDetailCount,Id
+                columns: ShipName,CloneFromOrder,Country,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,City,Ready,OrderDetailCount,Id
                 include_children: true
                 page_name: detail
                 template_name: detail_template.html
                 title: Order
                 typescript_name: detail_component.jinja
-                visible_columns: ShipName,CloneFromOrder,City,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,Country,Ready,OrderDetailCount,Id
+                visible_columns: ShipName,CloneFromOrder,Country,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,City,Ready,OrderDetailCount,Id
               home:
-                columns: ShipName,CloneFromOrder,City,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,Country,Ready,OrderDetailCount,Id
+                columns: ShipName,CloneFromOrder,Country,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,City,Ready,OrderDetailCount,Id
                 include_children: true
                 page_name: home
                 template_name: home_template.html
                 title: Order
                 typescript_name: home_template.jinja
-                visible_columns: ShipName,CloneFromOrder,City,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,Country,Ready,OrderDetailCount,Id
+                visible_columns: ShipName,CloneFromOrder,Country,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,City,Ready,OrderDetailCount,Id
               new:
-                columns: ShipName,CloneFromOrder,City,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,Country,Ready,OrderDetailCount,Id
+                columns: ShipName,CloneFromOrder,Country,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,City,Ready,OrderDetailCount,Id
                 include_children: true
                 page_name: new
                 template_name: new_template.html
                 title: Order
                 typescript_name: new_component.jinja
-                visible_columns: ShipName,CloneFromOrder,City,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,Country,Ready,OrderDetailCount,Id
+                visible_columns: ShipName,CloneFromOrder,Country,CustomerId,EmployeeId,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry,AmountTotal,City,Ready,OrderDetailCount,Id
             template_name: module.jinja
           OrderDetail:
             icon: edit_square
@@ -895,8 +895,8 @@ entities:
     tab_groups:
     - direction: tomany
       fks:
-      - City
       - Country
+      - City
       name: OrderList
       resource: Order
     type: Location
@@ -911,7 +911,7 @@ entities:
     - name: CloneFromOrder
       template: integer
       type: INTEGER
-    - name: City
+    - name: Country
       template: text
       type: VARCHAR(50)
     - name: CustomerId
@@ -953,7 +953,7 @@ entities:
     - name: AmountTotal
       template: real
       type: DECIMAL(10, 2)
-    - name: Country
+    - name: City
       template: text
       type: VARCHAR(50)
     - name: Ready
@@ -988,8 +988,8 @@ entities:
       resource: Order
     - direction: toone
       fks:
-      - City
       - Country
+      - City
       name: Location
       resource: Location
     - direction: toone
