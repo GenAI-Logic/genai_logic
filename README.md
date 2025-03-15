@@ -1,5 +1,11 @@
 # Welcome to GenAI-Logic
 
+Thankyou for installing!  We very much appreciate your interest, and are determined to make your experience as productive as possible.
+
+Issues?  Email us at `support@genai-logic.com`
+
+&nbsp;
+
 ## Install GenAI-Logic and WebGenAI
 
 To install WebGenAI:
@@ -29,19 +35,30 @@ Find the [documentation here](https://apilogicserver.github.io/Docs/WebGenAI/)
 
 ## Run API Logic Server samples 
 
+Installation not required.
+
 Your install includes a few sample systems at: samples.
 
 To run the default sample:
 
 ```bash
-sh run_sample $
+sh run_sample nw_sample
 ```
 
-To run a different sample, replace $ with the sample directory.  Only 1 sample can be loaded at a time.
+To run a different sample, replace `nw_sample` with the sample directory.  Only 1 sample can be loaded at a time.
+
+| Sample | Notes   |
+| :------------- | :------------- |
+| nw_sample | Our take on Northwind (Customers, Orders etc), with logic.<br><br>1. Illustrates key functionality<br>2. Extensive Tutorial and examples |
+| nw_sample_nocust | Uncustomized version of nw, created in about 5-10 seconds.<br><br>Illustrates results you should obtain using your existing databases |
+
+&nbsp;
 
 ## Creating projects from existing databases
 
 TBD
+
+&nbsp;
 
 ## Debugging Projects in VSCode
 
