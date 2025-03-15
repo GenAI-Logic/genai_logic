@@ -10,13 +10,13 @@ Issues?  Email us at `support@genai-logic.com`
 
 To install WebGenAI:
 
-1. Copy the license file you received in the registration email over this: webgenai/webg_config/license.json 
+1. Copy the license file you received in the registration email over this: `webgenai/webg_config/license`.json 
 2. GenAI-Logic uses OpenAI, which requires an Open API Key
     1. Obtain a Key
         1. Obtain one from [here](https://platform.openai.com/account/api-keys) or [here](https://platform.openai.com/api-keys)
         2. Authorize payments [here](https://platform.openai.com/settings/organization/billing/overview)
         3. Create an environmental variable `APILOGICSERVER_CHATGPT_MODEL`
-    2. Update this file with your OpenAI API Key: webgenai/webg_config/web_genai.txt.  To get the key:
+    2. Update this file with your OpenAI API Key: `webgenai/webg_config/web_genai.txt`.  To get the key:
 
 &nbsp;
 ## To Run WebGenAI
@@ -45,7 +45,7 @@ To run the default sample:
 sh run_sample nw_sample
 ```
 
-To run a different sample, replace `nw_sample` with the sample directory.  Only 1 sample can be loaded at a time.
+To run a different sample, replace `nw_sample` with the sample directory.  Only 1 sample can be running at a time.
 
 | Sample | Notes   |
 | :------------- | :------------- |
